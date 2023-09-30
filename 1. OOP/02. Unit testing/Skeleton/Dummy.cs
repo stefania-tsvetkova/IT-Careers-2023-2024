@@ -11,7 +11,7 @@ public class Dummy : ITarget
         this.experience = experience;
     }
 
-    public int Health 
+    public int Health
     {
         get { return this.health; }
     }
