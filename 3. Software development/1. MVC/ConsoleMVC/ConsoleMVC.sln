@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransportPrice", "TransportPrice\TransportPrice.csproj", "{48CE2A88-0DAE-453D-9825-A2E8D79BCEDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Histogram", "Histogram\Histogram.csproj", "{5B901317-1380-4091-9793-690B6F43A7EB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{48CE2A88-0DAE-453D-9825-A2E8D79BCEDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48CE2A88-0DAE-453D-9825-A2E8D79BCEDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48CE2A88-0DAE-453D-9825-A2E8D79BCEDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48CE2A88-0DAE-453D-9825-A2E8D79BCEDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B901317-1380-4091-9793-690B6F43A7EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B901317-1380-4091-9793-690B6F43A7EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B901317-1380-4091-9793-690B6F43A7EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B901317-1380-4091-9793-690B6F43A7EB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7E96C253-D77E-4FFF-A612-B3202BB8BFDA}
+	EndGlobalSection
+EndGlobal
