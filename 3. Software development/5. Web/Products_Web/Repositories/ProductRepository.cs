@@ -31,7 +31,18 @@ namespace Products_Web.Repositories
             context.SaveChanges();
         }
 
-        private Product Get(int id)
+        public void Edit(Product product)
+        {
+            var entity = Get(product.Id);
+
+            entity.Name = product.Name;
+            entity.Stock = product.Stock;
+            entity.Price = product.Price;
+
+            context.SaveChanges();
+        }
+
+        public Product Get(int id)
             => context.Products.FirstOrDefault(product => product.Id == id);
     }
 }

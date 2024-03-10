@@ -9,5 +9,9 @@ namespace Products_Web.Repositories.Interfaces
         IEnumerable<Product> GetAll();
 
         void Delete(int id);
+
+        void Edit(Product product);
+
+        Product Get(int id);
     }
 }

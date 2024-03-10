@@ -16,6 +16,15 @@ namespace Products_Web.Data.Entities
         [Required]
         public int Stock { get; set; }
 
+        public Product()
+        { }
+
+        public Product(int id, string name, double price, int stock)
+            : this(name, price, stock)
+        {
+            Id = id;
+        }
+
         public Product(string name, double price, int stock)
         {
             Name = name;

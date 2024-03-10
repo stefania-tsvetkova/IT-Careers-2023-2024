@@ -10,6 +10,8 @@ namespace Products_Web.Services.Interfaces
 
         void Delete(int id);
 
-        // ToDo: Update
+        void Edit(EditProductViewModel product);
+
+        ProductViewModel Get(int id);
     }
 }

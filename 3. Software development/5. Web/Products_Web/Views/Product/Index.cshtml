@@ -29,8 +29,16 @@
                 <th>
                     <button>
                         <a 
-                            asp-controller="Product" 
-                            asp-action="Delete" 
+                            asp-controller="Product"
+                            asp-action="Edit"
+                            asp-route-id="@product.Id">
+                            Edit
+                        </a>
+                    </button>
+                    <button>
+                        <a 
+                            asp-controller="Product"
+                            asp-action="Delete"
                             asp-route-id="@product.Id">
                             Delete
                         </a>

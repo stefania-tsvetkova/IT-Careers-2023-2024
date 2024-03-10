@@ -39,5 +39,20 @@ namespace Products_Web.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
+        public IActionResult Edit(int id)
+        {
+            var product = productService.Get(id);
+
+            return View(product);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(EditProductViewModel product)
+        {
+            productService.Edit(product);
+
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
