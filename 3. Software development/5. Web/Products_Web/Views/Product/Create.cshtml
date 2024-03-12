@@ -4,23 +4,30 @@
 @{
 }
 
-<h2>Create Product</h2>
+@if (User.Identity?.IsAuthenticated ?? false)
+{
+    <h2>Create Product</h2>
 
-<form method="post" asp-controller="Product" asp-action="Create">
-    <p>
-        <label>Name</label>
-        <input type="text" name="Name" />
-    </p>
+    <form method="post" asp-controller="Product" asp-action="Create">
+        <p>
+            <label>Name</label>
+            <input type="text" name="Name" />
+        </p>
     
-    <p>
-        <label>Price</label>
-        <input type="number" step="any" name="Price" />
-    </p>
+        <p>
+            <label>Price</label>
+            <input type="number" step="any" name="Price" />
+        </p>
 
-    <p>
-        <label>Stock</label>
-        <input type="number" name="Stock" />
-    </p>
+        <p>
+            <label>Stock</label>
+            <input type="number" name="Stock" />
+        </p>
 
-    <button type="submit">Create</button>
-</form>
+        <button type="submit">Create</button>
+    </form>
+}
+else
+{
+<h2 class="text-danger">You can't accesss this page if you aren't logged in.</h2>
+}

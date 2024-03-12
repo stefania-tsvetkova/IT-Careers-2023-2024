@@ -1,28 +1,36 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+﻿@using Products_Web.Models.Product
+@*
 *@
+@model EditProductViewModel
 @{
 }
 
-<h2>Edit Product</h2>
+@if (User.Identity?.IsAuthenticated ?? false)
+{
+    <h2>Edit Product</h2>
 
-<form method="post" asp-controller="Product" asp-action="Edit" asp-route-id="@Model.Id">
-    <p>
-        <label>Name</label>
-        <input type="text" name="Name" value="@Model.Name" />
-    </p>
+    <form method="post" asp-controller="Product" asp-action="Edit" asp-route-id="@Model.Id">
+        <p>
+            <label>Name</label>
+            <input type="text" name="Name" value="@Model.Name" />
+        </p>
 
-    <p>
-        <label>Price</label>
-        <input type="number" step="any" name="Price" value="@Model.Price" />
-    </p>
+        <p>
+            <label>Price</label>
+            <input type="number" step="any" name="Price" value="@Model.Price" />
+        </p>
 
-    <p>
-        <label>Stock</label>
-        <input type="number" name="Stock" value="@Model.Stock" />
-    </p>
+        <p>
+            <label>Stock</label>
+            <input type="number" name="Stock" value="@Model.Stock" />
+        </p>
 
-    <button type="submit">Edit</button>
+        <button type="submit">Edit</button>
 
-    <button asp-controller="Product" asp-action="Index">Cancel</button>
-</form>
+        <button asp-controller="Product" asp-action="Index">Cancel</button>
+    </form>
+}
+else
+{
+    <h2 class="text-danger">You can't accesss this page if you aren't logged in.</h2>
+}

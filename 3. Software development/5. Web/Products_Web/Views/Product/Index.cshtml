@@ -7,44 +7,51 @@
 
 @model IEnumerable<ProductViewModel>
 
-<h2>Products</h2>
+@if (User.Identity?.IsAuthenticated ?? false)
+{
+    <h2>Products</h2>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Stock</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-
-    <tbody>
-        @foreach (var product in Model)
-        {
+    <table class="table">
+        <thead>
             <tr>
-                <th>@product.Name</th>
-                <th>@product.Price</th>
-                <th>@product.Stock</th>
-                <th>
-                    <button>
-                        <a 
+                <th>Name</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <th>@product.Name</th>
+                    <th>@product.Price</th>
+                    <th>@product.Stock</th>
+                    <th>
+                        <button>
+                            <a 
                             asp-controller="Product"
                             asp-action="Edit"
                             asp-route-id="@product.Id">
-                            Edit
-                        </a>
-                    </button>
-                    <button>
-                        <a 
+                                Edit
+                            </a>
+                        </button>
+                        <button>
+                            <a 
                             asp-controller="Product"
                             asp-action="Delete"
                             asp-route-id="@product.Id">
-                            Delete
-                        </a>
-                    </button>
-                </th>
-            </tr>
-        }
-    </tbody>
-</table>
+                                Delete
+                            </a>
+                        </button>
+                    </th>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <h2 class="text-danger">You can't accesss this page if you aren't logged in.</h2>
+}
