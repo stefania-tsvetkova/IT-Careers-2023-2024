@@ -1,0 +1,45 @@
+﻿@using Products_Web.Data.Constants
+@using Products_Web.Models.User
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Users";
+
+    var users = Model;
+}
+
+@model IEnumerable<UserViewModel>
+
+@if ((User.Identity?.IsAuthenticated ?? false) && 
+    User.IsInRole(UserRoles.Admin.ToString()))
+{
+    <h1>Users</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Name</th>
+                <th>Role</th>
+            </tr>
+        </thead>
+
+        @foreach (var user in users)
+        {
+            var rowColor = user.Role == UserRoles.Admin.ToString() ? "red" : "black";
+
+            <tr style="color: @rowColor">
+                <th>@user.Id</th>
+                <th>@user.Email</th>
+                <th>@user.Name</th>
+                <th>@user.Role</th>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <h2 class="text-danger">You don't have permission to accesss this page.</h2>
+}
