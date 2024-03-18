@@ -29,7 +29,7 @@ namespace Products_Web.Tests.Repositories
         [Test]
         public void GivenAProduct_WhenAddingAProduct_AddsIt()
         {
-            var product = new Product("new product", 10, 100);
+            var product = new Product("new product", 10, 100, new ProductDetails("calories: 100", DateTime.Now));
 
             productRepository.Add(product);
 
@@ -90,9 +90,9 @@ namespace Products_Web.Tests.Repositories
         {
             var products = new[]
             {
-                new Product(1, "product1", 10, 100),
-                new Product(2, "product2", 15, 60),
-                new Product(3, "product3", 300, 5)
+                new Product(1, "product1", 10, 100, new ProductDetails(1, "calories: 100", DateTime.Now)),
+                new Product(2, "product2", 15, 60, new ProductDetails(2, "calories: 569", DateTime.Now)),
+                new Product(3, "product3", 300, 5, new ProductDetails(3, "none", DateTime.Now))
             };
 
             applicationContext.Products.AddRange(products);

@@ -8,6 +8,8 @@ namespace Products_Web.Data
     {
         public DbSet<Product> Products { get; set; }
 
+        public DbSet<ProductDetails> ProductDetails { get; set; }
+
         public ApplicationContext(DbContextOptions<ApplicationContext> options)
             : base(options)
         { }

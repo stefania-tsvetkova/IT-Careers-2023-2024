@@ -1,4 +1,7 @@
-﻿namespace Products_Web.Models.Product
+﻿using ProductEntity = Products_Web.Data.Entities.Product;
+
+
+namespace Products_Web.Models.Product
 {
     public class CreateProductViewModel
     {
@@ -8,11 +11,20 @@
 
         public int Stock { get; set; }
 
-        public CreateProductViewModel(string name, double price, int stock)
+        public string NutritionInformation { get; set; }
+
+        public DateTime ExpirationDate { get; set; }
+
+        public CreateProductViewModel()
+        { }
+
+        public CreateProductViewModel(ProductEntity product)
         {
-            Name = name;
-            Price = price;
-            Stock = stock;
+            Name = product.Name;
+            Price = product.Price;
+            Stock = product.Stock;
+            NutritionInformation = product.Details.NutritionInformation;
+            ExpirationDate = product.Details.ExpirationDate;
         }
     }
 }

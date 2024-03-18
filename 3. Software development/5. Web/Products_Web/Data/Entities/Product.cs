@@ -16,20 +16,27 @@ namespace Products_Web.Data.Entities
         [Required]
         public int Stock { get; set; }
 
-        public Product()
-        { }
+        public int DetailsId { get; set; }
 
-        public Product(int id, string name, double price, int stock)
-            : this(name, price, stock)
+        public virtual ProductDetails Details { get; set; }
+
+        public Product()
+        {
+        }
+
+        public Product(int id, string name, double price, int stock, ProductDetails details)
+            : this(name, price, stock, details)
         {
             Id = id;
         }
 
-        public Product(string name, double price, int stock)
+        public Product(string name, double price, int stock, ProductDetails details)
         {
             Name = name;
             Price = price;
             Stock = stock;
+            Details = details;
+            DetailsId = details.Id;
         }
 
         public override bool Equals(object? other)

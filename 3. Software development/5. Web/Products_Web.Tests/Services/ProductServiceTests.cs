@@ -18,9 +18,9 @@ namespace Products_Web.Tests.Services
         {
             productsInDatabase = new[]
             {
-                new Product(1, "product1", 10, 100),
-                new Product(2, "product2", 15, 60),
-                new Product(3, "product3", 300, 5)
+                new Product(1, "product1", 10, 100, new ProductDetails(1, "calories: 100", DateTime.Now)),
+                new Product(2, "product2", 15, 60, new ProductDetails(2, "calories: 569", DateTime.Now)),
+                new Product(3, "product3", 300, 5, new ProductDetails(3, "none", DateTime.Now))
             };
         }
 
@@ -36,8 +36,15 @@ namespace Products_Web.Tests.Services
         [Test]
         public void GivenValidProduct_WhenAddingAProduct_TheProductIsAdded()
         {
-            var product = new CreateProductViewModel("product", 10, 123);
 
+            var product = new CreateProductViewModel()
+            {
+                Name = "product",
+                Price = 10,
+                Stock = 123,
+                NutritionInformation = "calories: 100",
+                ExpirationDate = DateTime.Now
+            };
             productService.Add(product);
 
             productRepositoryMock.Verify(

@@ -16,7 +16,8 @@ namespace Products_Web.Services
 
         public void Add(CreateProductViewModel product)
         {
-            var productEntity = new Product(product.Name, product.Price, product.Stock);
+            var productDetails = new ProductDetails(product.NutritionInformation, product.ExpirationDate);
+            var productEntity = new Product(product.Name, product.Price, product.Stock, productDetails);
 
             productRepository.Add(productEntity);
         }
@@ -25,8 +26,7 @@ namespace Products_Web.Services
         {
             var productEntities = productRepository.GetAll();
 
-            var products = productEntities
-                .Select(product => new ProductViewModel(product.Id, product.Name, product.Price, product.Stock));
+            var products = productEntities.Select(product => new ProductViewModel(product));
 
             return products;
         }
@@ -35,15 +35,11 @@ namespace Products_Web.Services
         {
             var product = productRepository.Get(id);
 
-            return new ProductViewModel(product.Id, product.Name, product.Price, product.Stock);
+            return new ProductViewModel(product);
         }
 
-        public void Edit(EditProductViewModel product)
-        {
-            var productEntity = new Product(product.Id, product.Name, product.Price, product.Stock);
-
-            productRepository.Edit(productEntity);
-        }
+        public void Edit(ProductViewModel product)
+            => productRepository.Edit(product);
 
         public void Delete(int id)
             => productRepository.Delete(id);

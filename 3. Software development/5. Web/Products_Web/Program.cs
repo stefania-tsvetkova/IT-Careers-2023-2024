@@ -17,7 +17,9 @@ string connectionString =
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<ApplicationContext>(context =>
-    context.UseMySQL(connectionString));
+    context
+        .UseLazyLoadingProxies()
+        .UseMySQL(connectionString));
 
 builder.Services.AddIdentity<User, IdentityRole>(options =>
     {

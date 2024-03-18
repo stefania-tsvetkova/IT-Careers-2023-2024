@@ -10,7 +10,7 @@ namespace Products_Web.Services.Interfaces
 
         void Delete(int id);
 
-        void Edit(EditProductViewModel product);
+        void Edit(ProductViewModel product);
 
         ProductViewModel Get(int id);
     }

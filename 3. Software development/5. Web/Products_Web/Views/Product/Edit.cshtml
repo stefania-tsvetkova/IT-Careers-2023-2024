@@ -1,10 +1,11 @@
 ﻿@using Products_Web.Models.Product
 @*
 *@
-@model EditProductViewModel
 @{
     ViewData["Title"] = "Edit Product";
 }
+
+@model ProductViewModel
 
 @if (User.Identity?.IsAuthenticated ?? false)
 {
@@ -25,6 +26,17 @@
             <label>Stock</label>
             <input type="number" name="Stock" value="@Model.Stock" />
         </p>
+
+        <p>
+            <label>Nutrition Information</label>
+            <input type="text" name="NutritionInformation" value="@Model.NutritionInformation" />
+        </p>
+
+        <p>
+            <label>Expiration Date</label>
+            <input type="date" name="ExpirationDate" value="@Model.ExpirationDate.ToString("yyyy-MM-dd")" />
+        </p>
+
 
         <button type="submit">Edit</button>
 

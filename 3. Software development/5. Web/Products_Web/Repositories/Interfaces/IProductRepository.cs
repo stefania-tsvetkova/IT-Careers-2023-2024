@@ -1,4 +1,5 @@
 ﻿using Products_Web.Data.Entities;
+using Products_Web.Models.Product;
 
 namespace Products_Web.Repositories.Interfaces
 {
@@ -10,7 +11,7 @@ namespace Products_Web.Repositories.Interfaces
 
         void Delete(int id);
 
-        void Edit(Product product);
+        void Edit(ProductViewModel product);
 
         Product Get(int id);
     }

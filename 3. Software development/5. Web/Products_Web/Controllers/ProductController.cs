@@ -48,7 +48,7 @@ namespace Products_Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(EditProductViewModel product)
+        public IActionResult Edit(ProductViewModel product)
         {
             productService.Edit(product);
 

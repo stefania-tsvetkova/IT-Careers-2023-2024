@@ -1,5 +1,6 @@
 ﻿using Products_Web.Data;
 using Products_Web.Data.Entities;
+using Products_Web.Models.Product;
 using Products_Web.Repositories.Interfaces;
 
 namespace Products_Web.Repositories
@@ -20,7 +21,9 @@ namespace Products_Web.Repositories
                 throw new ArgumentException("Product can't be null!");
             }
 
+            context.ProductDetails.Add(product.Details);
             context.Products.Add(product);
+
             context.SaveChanges();
         }
 
@@ -36,13 +39,15 @@ namespace Products_Web.Repositories
             context.SaveChanges();
         }
 
-        public void Edit(Product product)
+        public void Edit(ProductViewModel product)
         {
             var entity = Get(product.Id);
 
             entity.Name = product.Name;
             entity.Stock = product.Stock;
             entity.Price = product.Price;
+            entity.Details.NutritionInformation = product.NutritionInformation;
+            entity.Details.ExpirationDate = product.ExpirationDate;
 
             context.SaveChanges();
         }
